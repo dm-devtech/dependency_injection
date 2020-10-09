@@ -1,7 +1,5 @@
 class NoteFormatter
-  attr_reader :note
-
-  def initialize(note)
-    @note = note
-  end
+  #def format(note)
+  #   "Title: #{note.title}\n#{note.body}"
+  # end
 end

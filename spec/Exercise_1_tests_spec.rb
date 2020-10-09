@@ -1,20 +1,15 @@
 require 'Note'
 require 'NoteFormatter'
 
-describe NoteFormatter do
-  let(:newnote) {Note.new("new title", "new body")}
-    it 'testing output using the note class' do
-      expect(newnote.display).to eq("Title: new title\nnew body")
+describe Note do
+  let(:title) {double :title}
+  let(:body) {double :body}
+  let(:note_formatter) {double :note_formatter, format: "Title: #{title}\n#{body}" }
+  describe '#display' do
+    it 'prints note title and body' do
+      note = Note.new(title, body, note_formatter)
+      expect(note.display).to eq("Title: #{title}\n#{body}")
     end
 end
 
-describe Note do
-  let (:newernote) {Note.new("title two", "body two")}
-    it 'testing the output of the title from Note class' do
-      expect(newernote.title).to eq("title two")
-    end
-
-    it 'testing the output of the body on the Note class' do
-      expect(newernote.body).to eq("body two")
-    end
 end
